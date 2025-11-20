@@ -1,0 +1,13 @@
+@startuml
+[Mobile App] as App
+[Database] as DB
+[Payment Gateway] as PG
+[Authentication Service] as Auth
+
+App --> DB : Stores user data, guitars, orders
+App --> PG : Processes payments
+App --> Auth : Handles login/register
+DB --> App : Retrieves data
+PG --> App : Confirms payment
+Auth --> App : Validates credentials
+@enduml

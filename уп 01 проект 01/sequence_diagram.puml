@@ -1,0 +1,28 @@
+@startuml
+actor User
+participant MobileApp
+participant Database
+participant PaymentGateway
+
+User -> MobileApp: Login request
+MobileApp -> Database: Validate credentials
+Database --> MobileApp: Credentials valid
+MobileApp --> User: Login success
+
+User -> MobileApp: Browse guitars
+MobileApp -> Database: Fetch guitar list
+Database --> MobileApp: Guitar data
+MobileApp --> User: Display guitars
+
+User -> MobileApp: Add to cart
+MobileApp -> Database: Update cart
+Database --> MobileApp: Cart updated
+MobileApp --> User: Cart updated
+
+User -> MobileApp: Purchase
+MobileApp -> PaymentGateway: Process payment
+PaymentGateway --> MobileApp: Payment success
+MobileApp -> Database: Create order
+Database --> MobileApp: Order created
+MobileApp --> User: Purchase complete
+@enduml
