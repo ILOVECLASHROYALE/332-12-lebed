@@ -1,0 +1,43 @@
+@startuml
+class User {
+  - id: int
+  - name: string
+  - email: string
+  - password: string
+  + login()
+  + register()
+}
+
+class Guitar {
+  - id: int
+  - name: string
+  - brand: string
+  - price: float
+  - description: string
+  + getDetails()
+}
+
+class Cart {
+  - id: int
+  - userId: int
+  - items: List<Guitar>
+  + addItem()
+  + removeItem()
+  + getTotal()
+}
+
+class Order {
+  - id: int
+  - userId: int
+  - items: List<Guitar>
+  - total: float
+  - status: string
+  + placeOrder()
+  + cancelOrder()
+}
+
+User "1" -- "1..*" Cart : has
+User "1" -- "1..*" Order : places
+Cart "1" -- "1..*" Guitar : contains
+Order "1" -- "1..*" Guitar : contains
+@enduml

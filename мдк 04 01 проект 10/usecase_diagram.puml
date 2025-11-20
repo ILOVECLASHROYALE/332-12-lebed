@@ -1,0 +1,20 @@
+@startuml
+actor Customer
+actor Admin
+
+usecase "Login" as UC1
+usecase "Register" as UC2
+usecase "Browse Guitars" as UC3
+usecase "Add to Cart" as UC4
+usecase "Purchase" as UC5
+usecase "View Orders" as UC6
+usecase "Manage Inventory" as UC7
+
+Customer --> UC1
+Customer --> UC2
+Customer --> UC3
+Customer --> UC4
+Customer --> UC5
+Customer --> UC6
+Admin --> UC7
+@enduml

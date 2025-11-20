@@ -1,0 +1,27 @@
+@startuml
+start
+:User opens app;
+if (Logged in?) then (yes)
+  :Browse guitars;
+else (no)
+  :Login/Register;
+  :Browse guitars;
+endif
+:Select guitar;
+:Add to cart;
+if (Proceed to checkout?) then (yes)
+  :Review cart;
+  :Enter payment details;
+  :Process payment;
+  if (Payment successful?) then (yes)
+    :Confirm order;
+    :Receive confirmation;
+  else (no)
+    :Payment failed;
+    :Retry or cancel;
+  endif
+else (no)
+  :Continue browsing;
+endif
+stop
+@enduml
